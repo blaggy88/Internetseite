@@ -321,6 +321,23 @@
             startTimer();
         };
     </script>
+    <script>
+        // Migration der Einkaufsliste
+        document.addEventListener("DOMContentLoaded", function() {
+            const oldList = localStorage.getItem("edeka_shopping_list");
+            const newList = localStorage.getItem("edeka_shopping_list_v2");
+            
+            // Migriere nur wenn alte Liste existiert und neue nicht
+            if (oldList && !newList) {
+                try {
+                    localStorage.setItem("edeka_shopping_list_v2", oldList);
+                    console.log("✅ Einkaufsliste migriert:", JSON.parse(oldList).length, "Artikel");
+                } catch(e) {
+                    console.error("❌ Migrationsfehler:", e);
+                }
+            }
+        });
+    </script>
     <script src="app.js"></script>
 </body>
 </html>
