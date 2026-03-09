@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDEKA Niemerszein - Alles Gute für Sie!</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="EDEKA Niemerszein - Ihr regionaler Supermarkt mit frischen Produkten, tollen Angeboten und persönlichem Service. Alles Gute für Sie!">
+    <meta name="keywords" content="EDEKA, Supermarkt, Lebensmittel, Angebote, Frische, Regional, Niemerszein">
+    <meta name="author" content="EDEKA Niemerszein">
+    <meta property="og:title" content="EDEKA Niemerszein - Alles Gute für Sie!">
+    <meta property="og:description" content="Ihr regionaler Supermarkt mit frischen Produkten und persönlichem Service">
+    <meta property="og:image" content="https://edeka-niemerszein.de/assets/edeka-logo.png">
+    <meta property="og:url" content="https://edeka-niemerszein.de">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#005A9C">
+    
+    <!-- Critical CSS (inline for performance) -->
+    <style>
+        /* Critical CSS for fast initial render */
+        :root {
+            --edeka-blue: #005A9C;
+            --edeka-yellow: #FADB00;
+            --text-dark: #333333;
+            --bg-light: #F8F9FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--edeka-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Skip to main content (accessibility) -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <button class="menu-toggle" aria-label="Menü öffnen" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="logo">
+                    <h1>
+                        <span class="logo-edeka">EDEKA</span>
+                        <span class="logo-niemerszein">Niemerszein</span>
+                    </h1>
+                    <p class="tagline">Alles Gute für Sie!</p>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="btn-icon" aria-label="Suche">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn-icon" aria-label="Einkaufswagen">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="btn-icon" aria-label="Benutzerprofil">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#angebote" class="nav-link active"><i class="fas fa-tag"></i> Angebote</a></li>
+                    <li><a href="#produkte" class="nav-link"><i class="fas fa-shopping-basket"></i> Produkte</a></li>
+                    <li><a href="#rezepte" class="nav-link"><i class="fas fa-utensils"></i> Rezepte</a></li>
+                    <li><a href="#markt" class="nav-link"><i class="fas fa-store"></i> Unser Markt</a></li>
+                    <li><a href="#service" class="nav-link"><i class="fas fa-headset"></i> Service</a></li>
+                    <li><a href="#kontakt" class="nav-link"><i class="fas fa-phone"></i> Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-slider" id="heroSlider">
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <h2>Frische vom Markt</h2>
+                            <p>Täglich frische Produkte aus der Region</p>
+                            <a href="#produkte" class="btn btn-primary">Jetzt entdecken</a>
+                        </div>
+                        <div class="slide-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Wochenangebote</h2>
+                            <p>Bis zu 30% sparen auf ausgewählte Produkte</p>
+                            <a href="#angebote" class="btn btn-primary">Zu den Angeboten</a>
+                        </div>
+                        <div class="slide-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Lieferservice</h2>
+                            <p>Frische direkt zu Ihnen nach Hause</p>
+                            <a href="#service" class="btn btn-primary">Jetzt bestellen</a>
+                        </div>
+                        <div class="slide-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-prev" aria-label="Vorheriges Bild">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots">
+                        <button class="dot active" aria-label="Slide 1"></button>
+                        <button class="dot" aria-label="Slide 2"></button>
+                        <button class="dot" aria-label="Slide 3"></button>
+                    </div>
+                    <button class="slider-next" aria-label="Nächstes Bild">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Shopping List Sidebar -->
+            <aside class="shopping-sidebar" id="shoppingSidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-list-check"></i> Einkaufsliste</h3>
+                    <button class="btn-icon sidebar-close" aria-label="Einkaufsliste schließen">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="sidebar-content">
+                    <div class="shopping-list" id="shoppingList">
+                        <!-- Items will be added here by JavaScript -->
+                        <div class="empty-state">
+                            <i class="fas fa-cart-plus"></i>
+                            <p>Füge Produkte zu deiner Liste hinzu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-actions">
+                        <button class="btn btn-secondary" id="clearList">
+                            <i class="fas fa-trash"></i> Liste leeren
+                        </button>
+                        <button class="btn btn-primary" id="shareList">
+                            <i class="fas fa-share"></i> Teilen
+                        </button>
+                    </div>
+                    
+                    <!-- AI Assistant Section -->
+                    <div class="ai-assistant">
+                        <div class="ai-header">
+                            <h4><i class="fas fa-robot"></i> KI-Assistent</h4>
+                            <button class="btn-icon ai-toggle" aria-label="KI-Assistent umschalten">
+                                <i class="fas fa-power-off"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="ai-content" id="aiContent">
+                            <div class="ai-message">
+                                <p>Hallo! Ich helfe dir bei deinem Einkauf. Was suchst du?</p>
+                            </div>
+                            
+                            <div class="ai-suggestions">
+                                <button class="ai-suggestion" data-action="recipe">
+                                    <i class="fas fa-utensils"></i> Rezept vorschlagen
+                                </button>
+                                <button class="ai-suggestion" data-action="optimize">
+                                    <i class="fas fa-magic"></i> Liste optimieren
+                                </button>
+                                <button class="ai-suggestion" data-action="missing">
+                                    <i class="fas fa-question"></i> Fehlende Zutaten
+                                </button>
+                            </div>
+                            
+                            <div class="ai-input">
+                                <input type="text" placeholder="Frage den KI-Assistenten..." id="aiInput">
+                                <button class="btn-icon" aria-label="Senden">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2 class="section-title">Schnellzugriff</h2>
+                <div class="actions-grid">
+                    <a href="#angebote" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h3>Aktuelle Angebote</h3>
+                        <p>Sparen Sie bis zu 30%</p>
+                    </a>
+                    
+                    <a href="#prospekt" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>Wochenprospekt</h3>
+                        <p>Alle Angebote im Überblick</p>
+                    </a>
+                    
+                    <a href="#rezepte" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Rezepte</h3>
+                        <p>Inspiration für die Küche</p>
+                    </a>
+                    
+                    <a href="#öffnungszeiten" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Öffnungszeiten</h3>
+                        <p>Wann wir für Sie da sind</p>
+                    </a>
+                    
+                    <a href="#standorte" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Standorte</h3>
+                        <p>Finden Sie uns</p>
+                    </a>
+                    
+                    <a href="#kontakt" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Kontakt</h3>
+                        <p>Wir helfen gerne</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-products">
+                <h2 class="section-title">Empfohlene Produkte</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Store Map -->
+            <section class="store-map">
+                <h2 class="section-title">Unser Markt</h2>
+                <div class="map-container">
+                    <div class="map-placeholder" id="storeMap">
+                        <div class="map-overlay">
+                            <h3>Interaktiver Marktplan</h3>
+                            <p>Klicken Sie auf die Bereiche um Produkte zu finden</p>
+                            <button class="btn btn-primary" id="exploreMap">
+                                <i class="fas fa-map"></i> Markt erkunden
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="map-categories">
+                        <button class="map-category active" data-category="obst-gemüse">
+                            <i class="fas fa-carrot"></i> Obst & Gemüse
+                        </button>
+                        <button class="map-category" data-category="fleisch-fisch">
+                            <i class="fas fa-drumstick-bite"></i> Fleisch & Fisch
+                        </button>
+                        <button class="map-category" data-category="kühlprodukte">
+                            <i class="fas fa-snowflake"></i> Kühlprodukte
+                        </button>
+                        <button class="map-category" data-category="trockensortiment">
+                            <i class="fas fa-box"></i> Trockensortiment
+                        </button>
+                        <button class="map-category" data-category="getränke">
+                            <i class="fas fa-wine-bottle"></i> Getränke
+                        </button>
+                        <button class="map-category" data-category="bäckerei">
+                            <i class="fas fa-bread-slice"></i> Bäckerei
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>EDEKA Niemerszein</h3>
+                    <p>Ihr regionaler Supermarkt mit frischen Produkten und persönlichem Service.</p>
+                    <p class="footer-tagline">Alles Gute für Sie!</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Musterstraße 123, 12345 Musterstadt</li>
+                        <li><i class="fas fa-phone"></i> 0123 4567890</li>
+                        <li><i class="fas fa-envelope"></i> info@edeka-niemerszein.de</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Öffnungszeiten</h4>
+                    <ul>
+                        <li>Mo - Fr: 7:00 - 20:00</li>
+                        <li>Sa: 7:00 - 18:00</li>
+                        <li>So: Geschlossen</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#datenschutz">Datenschutz</a></li>
+                        <li><a href="#impressum">Impressum</a></li>
+                        <li><a href="#agb">AGB</a></li>
+                        <li><a href="#widerruf">Widerrufsrecht</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 EDEKA Niemerszein. Alle Rechte vorbehalten.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class
