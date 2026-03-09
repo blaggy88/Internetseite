@@ -170,6 +170,157 @@
         <span>Hier entdecken ➔</span>
     </a>
 
-    <script src="app_optimized.js" defer></script>
+    <script>
+        // --- EINKAUFSLISTEN LOGIK ---
+        let shoppingList = JSON.parse(localStorage.getItem('edeka_shopping_list')) || [];
+
+        function initApp() {
+            updateListUI();
+        }
+
+        function toggleSidebar() {
+            document.getElementById('shoppingSidebar').classList.toggle('active');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+            if(document.getElementById('shoppingSidebar').classList.contains('active')) {
+                setTimeout(() => document.getElementById('customItemInput').focus(), 300);
+            }
+        }
+
+        function addCustomItem() {
+            const inputField = document.getElementById('customItemInput');
+            const title = inputField.value.trim();
+            if (title !== '') {
+                const customId = 'custom-' + Date.now();
+                shoppingList.push({ id: customId, title: title, price: 0, isCustom: true });
+                inputField.value = ''; 
+                saveList();
+                updateListUI();
+            }
+        }
+
+        function handleCustomItemKeypress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); 
+                addCustomItem();
+            }
+        }
+
+        function removeItem(id) {
+            shoppingList = shoppingList.filter(item => item.id !== id);
+            saveList();
+            updateListUI();
+        }
+
+        function saveList() {
+            localStorage.setItem('edeka_shopping_list', JSON.stringify(shoppingList));
+        }
+
+        function updateListUI() {
+            document.getElementById('listCounter').innerText = shoppingList.length;
+            const container = document.getElementById('listItemsContainer');
+            let sum = 0;
+            
+            if (shoppingList.length === 0) {
+                container.innerHTML = '<div class="empty-list-msg">Deine Einkaufsliste ist noch leer.</div>';
+            } else {
+                container.innerHTML = '';
+                shoppingList.forEach(item => {
+                    if(!item.isCustom) sum += parseFloat(item.price);
+                    const priceHtml = item.isCustom 
+                        ? '<span class="list-item-custom-label">Eigener Artikel</span>' 
+                        : `<span class="list-item-price">${item.price.toFixed(2).replace('.', ',')} €</span>`;
+                    const itemHtml = `
+                        <div class="list-item">
+                            <div class="list-item-info">
+                                <span class="list-item-title">${item.title}</span>
+                                ${priceHtml}
+                            </div>
+                            <button class="remove-item-btn" onclick="removeItem('${item.id}')" aria-label="Entfernen">🗑️</button>
+                        </div>`;
+                    container.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            document.getElementById('listTotalSum').innerText = sum.toFixed(2).replace('.', ',') + ' €';
+        }
+
+        // --- MOBILE NAVIGATION ---
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("active");
+        }
+
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById("mobileNav");
+                if (nav.classList.contains('active')) nav.classList.remove('active');
+            });
+        });
+
+        // --- SLIDER LOGIK MIT TOUCH/SWIPE ---
+        let slideIndex = 0;
+        const slider = document.getElementById("slider");
+        const sliderContainer = document.getElementById("sliderContainer");
+        const dots = document.getElementsByClassName("dot");
+        const totalSlides = document.getElementsByClassName("slide").length;
+        let slideInterval;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex].className += " active";
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= totalSlides) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = totalSlides - 1;
+            updateSlider();
+            resetTimer();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            updateSlider();
+            resetTimer();
+        }
+
+        function startTimer() {
+            slideInterval = setInterval(() => { moveSlide(1); }, 5000);
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startTimer();
+        }
+
+        // --- SWIPE ERKENNUNG ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                moveSlide(1); 
+            }
+            if (touchEndX > touchStartX + 50) {
+                moveSlide(-1); 
+            }
+        }
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        window.onload = () => {
+            initApp();
+            startTimer();
+        };
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>
