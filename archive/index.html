@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EDEKA Niemerszein - Alles Gute für Sie!</title>
+    <link rel="stylesheet" href="edeka_styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo-wrapper">
+                    <svg class="logo-img" viewBox="0 0 350 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="EDEKA Niemerszein - Alles Gute für Sie!">
+                        <rect x="0" y="5" width="50" height="50" rx="4" fill="#FADB00"/>
+                        <text x="25" y="39" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#005A9C" text-anchor="middle">E</text>
+                        <text x="65" y="34" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="800" font-size="32" fill="#005A9C" letter-spacing="1">NIEMERSZEIN</text>
+                        <text x="65" y="54" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="600" font-size="15" fill="#FADB00" letter-spacing="0.5">Alles Gute für Sie!</text>
+                    </svg>
+                </a>
+                
+                <div class="header-actions">
+                    <button class="list-toggle-btn" onclick="toggleSidebar()" aria-label="Einkaufsliste öffnen">
+                        🛒
+                        <span class="list-counter" id="listCounter">0</span>
+                    </button>
+                    <button class="burger-menu" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
+                </div>
+
+                <div class="top-badges">
+                    <a href="#">Kunden-Feedback</a>
+                    <a href="#">Azubi-Blog</a>
+                </div>
+            </div>
+            
+            <div class="main-nav" id="mobileNav">
+                <div class="nav-links">
+                    <a href="angebot.html">ANGEBOTE</a>
+                    <a href="markt.html">MÄRKTE</a>
+                    <a href="#">SORTIMENT</a>
+                    <a href="#">SERVICE</a>
+                    <a href="#">NEWS & AKTIONEN</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="#" class="btn-blue">AUSBILDUNG</a>
+                    <a href="#" class="btn-blue">JOBS</a>
+                    <a href="#">UNTERNEHMEN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    <div class="shopping-list-sidebar" id="shoppingSidebar">
+        <div class="sidebar-header">
+            <h2>Meine Liste</h2>
+            <button class="close-sidebar-btn" onclick="toggleSidebar()">✕</button>
+        </div>
+        
+        <div class="custom-item-container">
+            <input type="text" id="customItemInput" class="custom-item-input" placeholder="Eigener Artikel (z.B. Milch...)" onkeypress="handleCustomItemKeypress(event)">
+            <button class="custom-item-add-btn" onclick="addCustomItem()">+</button>
+        </div>
+
+        <div class="list-items-container" id="listItemsContainer">
+            <div class="empty-list-msg">Deine Einkaufsliste ist noch leer.</div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="list-total">
+                <span>Summe Angebote:</span>
+                <span id="listTotalSum">0,00 €</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="slider-container" id="sliderContainer">
+        <div class="slider" id="slider">
+            <a href="angebot.html" class="slide" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1920');">
+                <div class="slide-content">
+                    <h2>AUCH DIESE WOCHE gibt es viele tolle Angebote!</h2>
+                    <p>Schauen Sie doch gleich mal rein ➔</p>
+                </div>
+            </a>
+            <a href="/sortiment/vegan" class="slide" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=1920');">
+                <div class="slide-content">
+                    <h2>APPROVED BY MEAT LOVERS!</h2>
+                    <p>100% natürliche, pflanzliche Proteine.</p>
+                </div>
+            </a>
+            <a href="/sortiment/ready-meals" class="slide" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80&w=1920');">
+                <div class="slide-content">
+                    <h2>READY MEALS IM GLAS</h2>
+                    <p>Soooo gut! Lecker, schnell & einfach.</p>
+                </div>
+            </a>
+            <a href="Steaks.html" class="slide" style="background-image: url('https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=1920');">
+                <div class="slide-content">
+                    <h2>WORLD CLASS BEEF</h2>
+                    <p>Höchste Qualität für den perfekten Fleischgenuss.</p>
+                </div>
+            </a>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <section class="about-section container">
+        <div class="about-text">
+            <h2>MOIN MOIN,</h2>
+            <p>liebe Hamburger und Hamburgerinnen! Schön, dass Sie mal reinschauen bei EDEKA Niemerszein. Vielleicht kennen Sie uns schon von Kindesbeinen an? Schließlich gehören wir schon seit über 60 Jahren zur Nachbarschaft in den schönsten Vierteln Hamburgs. NIEMERSZEIN ist ein Familienunternehmen, in dem Leidenschaft für gutes Essen Tradition hat.</p>
+            <p>Sie finden bei uns alles, was uns das Leben jeden Tag genießen lässt: von klassischen Lebensmitteln – immer den entscheidenden Tick frischer und geschmackvoller – bis zu Feinkost. Bei allem, was wir verkaufen, ist 100% Qualität unser Anspruch.</p>
+            <p>Regionale Köstlichkeiten stehen bei uns besonders hoch im Kurs. Knackiges Obst und Gemüse und erstklassige Fleisch- und Wurstwaren beziehen wir am liebsten von langjährig befreundeten Betrieben aus dem Umland.</p>
+            <p>Es ist uns eine besondere Freude, unsere Waren mit guter Beratung wie Weinempfehlungen oder Fachgesimpel an der Käsetheke zu krönen – die persönliche Nähe zu unseren Kunden lässt uns täglich besonders gut gelaunt und motiviert an die Arbeit gehen.</p>
+            <p>Alles Gute für Sie,<br>Ihre Niemerszein Familie</p>
+        </div>
+        <div class="about-badges">
+            <div class="badge-img">Hier könnte<br>Ihr Logo stehen</div>
+            <div class="badge-img">Küchenliebe<br>Logo</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="promo-banner">
+            BEWIRB DICH JETZT BEI UNS FÜR <span>DEINE AUSBILDUNG 2026 ➔</span>
+        </div>
+    </div>
+
+    <section class="news-section">
+        <div class="grid">
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&q=80&w=600" alt="Käse" class="card-img">
+                <div class="card-content"><h3>UND DER KÄSE-STAR GEHT AN ... UNS!</h3></div>
+            </a>
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=600" alt="Früchte" class="card-img">
+                <div class="card-content"><h3>DIE FRÜCHTE UNSERER ARBEIT</h3></div>
+            </a>
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600" alt="Küchenliebe" class="card-img">
+                <div class="card-content"><h3>MITTAG HURRA – KÜCHENLIEBE IST DA!!</h3></div>
+            </a>
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=600" alt="Falstaff" class="card-img">
+                <div class="card-content"><h3>falstaff HAT GEWÄHLT!</h3></div>
+            </a>
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Ausbildung" class="card-img">
+                <div class="card-content"><h3>MACH EINE AUSBILDUNG BEI UNS!</h3></div>
+            </a>
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=600" alt="Team" class="card-img">
+                <div class="card-content"><h3>WIR SIND STOLZ, STOLZ, STOLZ!</h3></div>
+            </a>
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=600" alt="Presse" class="card-img">
+                <div class="card-content"><h3>GANZ GROSS IN DER PRESSE!</h3></div>
+            </a>
+        </div>
+    </section>
+
+    <a href="Steaks.html" class="floating-beef-badge">
+        🥩 WORLD CLASS BEEF
+        <span>Hier entdecken ➔</span>
+    </a>
+
+    <script>
+        // --- EINKAUFSLISTEN LOGIK ---
+        let shoppingList = JSON.parse(localStorage.getItem('edeka_shopping_list')) || [];
+
+        function initApp() {
+            updateListUI();
+        }
+
+        function toggleSidebar() {
+            document.getElementById('shoppingSidebar').classList.toggle('active');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+            if(document.getElementById('shoppingSidebar').classList.contains('active')) {
+                setTimeout(() => document.getElementById('customItemInput').focus(), 300);
+            }
+        }
+
+        function addCustomItem() {
+            const inputField = document.getElementById('customItemInput');
+            const title = inputField.value.trim();
+            if (title !== '') {
+                const customId = 'custom-' + Date.now();
+                shoppingList.push({ id: customId, title: title, price: 0, isCustom: true });
+                inputField.value = ''; 
+                saveList();
+                updateListUI();
+            }
+        }
+
+        function handleCustomItemKeypress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); 
+                addCustomItem();
+            }
+        }
+
+        function removeItem(id) {
+            shoppingList = shoppingList.filter(item => item.id !== id);
+            saveList();
+            updateListUI();
+        }
+
+        function saveList() {
+            localStorage.setItem('edeka_shopping_list', JSON.stringify(shoppingList));
+        }
+
+        function updateListUI() {
+            document.getElementById('listCounter').innerText = shoppingList.length;
+            const container = document.getElementById('listItemsContainer');
+            let sum = 0;
+            
+            if (shoppingList.length === 0) {
+                container.innerHTML = '<div class="empty-list-msg">Deine Einkaufsliste ist noch leer.</div>';
+            } else {
+                container.innerHTML = '';
+                shoppingList.forEach(item => {
+                    if(!item.isCustom) sum += parseFloat(item.price);
+                    const priceHtml = item.isCustom 
+                        ? '<span class="list-item-custom-label">Eigener Artikel</span>' 
+                        : `<span class="list-item-price">${item.price.toFixed(2).replace('.', ',')} €</span>`;
+                    const itemHtml = `
+                        <div class="list-item">
+                            <div class="list-item-info">
+                                <span class="list-item-title">${item.title}</span>
+                                ${priceHtml}
+                            </div>
+                            <button class="remove-item-btn" onclick="removeItem('${item.id}')" aria-label="Entfernen">🗑️</button>
+                        </div>`;
+                    container.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            document.getElementById('listTotalSum').innerText = sum.toFixed(2).replace('.', ',') + ' €';
+        }
+
+        // --- MOBILE NAVIGATION ---
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("active");
+        }
+
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById("mobileNav");
+                if (nav.classList.contains('active')) nav.classList.remove('active');
+            });
+        });
+
+        // --- SLIDER LOGIK MIT TOUCH/SWIPE ---
+        let slideIndex = 0;
+        const slider = document.getElementById("slider");
+        const sliderContainer = document.getElementById("sliderContainer");
+        const dots = document.getElementsByClassName("dot");
+        const totalSlides = document.getElementsByClassName("slide").length;
+        let slideInterval;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex].className += " active";
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= totalSlides) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = totalSlides - 1;
+            updateSlider();
+            resetTimer();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            updateSlider();
+            resetTimer();
+        }
+
+        function startTimer() {
+            slideInterval = setInterval(() => { moveSlide(1); }, 5000);
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startTimer();
+        }
+
+        // --- SWIPE ERKENNUNG ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                moveSlide(1); 
+            }
+            if (touchEndX > touchStartX + 50) {
+                moveSlide(-1); 
+            }
+        }
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        window.onload = () => {
+            initApp();
+            startTimer();
+        };
+    </script>
+    <script>
+        // Migration der Einkaufsliste
+        document.addEventListener("DOMContentLoaded", function() {
+            const oldList = localStorage.getItem("edeka_shopping_list");
+            const newList = localStorage.getItem("edeka_shopping_list_v2");
+            
+            // Migriere nur wenn alte Liste existiert und neue nicht
+            if (oldList && !newList) {
+                try {
+                    localStorage.setItem("edeka_shopping_list_v2", oldList);
+                    console.log("✅ Einkaufsliste migriert:", JSON.parse(oldList).length, "Artikel");
+                } catch(e) {
+                    console.error("❌ Migrationsfehler:", e);
+                }
+            }
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
