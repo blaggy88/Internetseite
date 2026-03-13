@@ -3,341 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EDEKA Niemerszein - Alles Gute für Sie!</title>
+    <title>EDEKA Niemerszein Hamburg - Alles Gute für Sie!</title>
+    <meta name="description" content="EDEKA Niemerszein in Hamburg - Seit über 60 Jahren für beste Qualität, regionale Produkte und persönliche Beratung. Ihr Markt für Feinkost, Fleisch, Käse und mehr.">
     <link rel="stylesheet" href="edeka_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- Header mit verbesserter Navigation -->
     <header>
         <div class="container">
             <div class="header-top">
-                <a href="#" class="logo-wrapper">
-                    <svg class="logo-img" viewBox="0 0 350 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="EDEKA Niemerszein - Alles Gute für Sie!">
-                        <rect x="0" y="5" width="50" height="50" rx="4" fill="#FADB00"/>
-                        <text x="25" y="39" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#005A9C" text-anchor="middle">E</text>
-                        <text x="65" y="34" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="800" font-size="32" fill="#005A9C" letter-spacing="1">NIEMERSZEIN</text>
-                        <text x="65" y="54" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="600" font-size="15" fill="#FADB00" letter-spacing="0.5">Alles Gute für Sie!</text>
-                    </svg>
+                <a href="index.html" class="logo-wrapper">
+                    <div class="logo-container">
+                        <div class="logo-e">E</div>
+                        <div class="logo-text">
+                            <div class="logo-name">NIEMERSZEIN</div>
+                            <div class="logo-tagline">Alles Gute für Sie!</div>
+                        </div>
+                    </div>
                 </a>
                 
-                <div class="header-actions">
-                    <button class="list-toggle-btn" onclick="toggleSidebar()" aria-label="Einkaufsliste öffnen">
-                        🛒
-                        <span class="list-counter" id="listCounter">0</span>
-                    </button>
-                    <button class="burger-menu" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
+                <div class="header-contact">
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>040 123 456 789</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <span>Mo-Sa 7:00-21:00</span>
+                    </div>
                 </div>
 
-                <div class="top-badges">
-                    <a href="#">Kunden-Feedback</a>
-                    <a href="#">Azubi-Blog</a>
+                <div class="header-actions">
+                    <button class="list-toggle-btn" onclick="toggleSidebar()" aria-label="Einkaufsliste öffnen">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="list-counter" id="listCounter">0</span>
+                    </button>
+                    <button class="burger-menu" onclick="toggleMenu()" aria-label="Menü öffnen">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
             
-            <div class="main-nav" id="mobileNav">
+            <nav class="main-nav" id="mobileNav">
                 <div class="nav-links">
+                    <a href="index.html" class="active">STARTSEITE</a>
                     <a href="angebot.html">ANGEBOTE</a>
                     <a href="markt.html">MÄRKTE</a>
-                    <a href="#">SORTIMENT</a>
-                    <a href="#">SERVICE</a>
-                    <a href="#">NEWS & AKTIONEN</a>
+                    <a href="sortiment.html">SORTIMENT</a>
+                    <a href="service.html">SERVICE</a>
+                    <a href="news.html">NEWS & AKTIONEN</a>
                 </div>
                 <div class="nav-actions">
-                    <a href="#" class="btn-blue">AUSBILDUNG</a>
-                    <a href="#" class="btn-blue">JOBS</a>
-                    <a href="#">UNTERNEHMEN</a>
+                    <a href="ausbildung.html" class="btn-blue"><i class="fas fa-graduation-cap"></i> AUSBILDUNG</a>
+                    <a href="jobs.html" class="btn-blue"><i class="fas fa-briefcase"></i> JOBS</a>
+                    <a href="unternehmen.html" class="btn-outline"><i class="fas fa-building"></i> UNTERNEHMEN</a>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
+    <!-- Hero Slider mit verbessertem Design -->
+    <section class="hero-slider">
+        <div class="slider-container" id="sliderContainer">
+            <div class="slider" id="slider">
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 90, 156, 0.7), rgba(0, 90, 156, 0.7)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1920');">
+                    <div class="container">
+                        <div class="slide-content">
+                            <h1>WILLKOMMEN BEI EDEKA NIEMERSZEIN</h1>
+                            <p class="slide-subtitle">Seit über 60 Jahren für beste Qualität in Hamburg</p>
+                            <a href="angebot.html" class="btn-hero">AKTUELLE ANGEBOTE ENTDECKEN <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 90, 156, 0.7), rgba(0, 90, 156, 0.7)), url('https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=1920');">
+                    <div class="container">
+                        <div class="slide-content">
+                            <h1>WORLD CLASS BEEF</h1>
+                            <p class="slide-subtitle">Höchste Fleischqualität für den perfekten Genuss</p>
+                            <a href="Steaks.html" class="btn-hero">ZUM FLEISCHSORTIMENT <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 90, 156, 0.7), rgba(0, 90, 156, 0.7)), url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=1920');">
+                    <div class="container">
+                        <div class="slide-content">
+                            <h1>REGIONALE KÖSTLICHKEITEN</h1>
+                            <p class="slide-subtitle">Frische Produkte aus dem Hamburger Umland</p>
+                            <a href="sortiment.html" class="btn-hero">REGIONALE PRODUKTE <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-nav prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-nav next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über uns Sektion mit verbessertem Layout -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>ÜBER UNS</h2>
+                <p class="section-subtitle">Tradition & Leidenschaft seit 1960</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>MOIN MOIN, liebe Hamburger und Hamburgerinnen!</h3>
+                    <p>Schön, dass Sie mal reinschauen bei EDEKA Niemerszein. Vielleicht kennen Sie uns schon von Kindesbeinen an? Schließlich gehören wir schon seit über 60 Jahren zur Nachbarschaft in den schönsten Vierteln Hamburgs. NIEMERSZEIN ist ein Familienunternehmen, in dem Leidenschaft für gutes Essen Tradition hat.</p>
+                    <p>Sie finden bei uns alles, was uns das Leben jeden Tag genießen lässt: von klassischen Lebensmitteln – immer den entscheidenden Tick frischer und geschmackvoller – bis zu Feinkost. Bei allem, was wir verkaufen, ist 100% Qualität unser Anspruch.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Regionale Produkte</h4>
+                            <p>Frische aus dem Hamburger Umland</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h4>Beste Qualität</h4>
+                            <p>100% Qualitätsanspruch</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h4>Persönliche Beratung</h4>
+                            <p>Fachkompetenz mit Herz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&q=80&w=800" alt="EDEKA Niemerszein Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aktuelle Highlights -->
+    <section class="highlights-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AKTUELLE HIGHLIGHTS</h2>
+                <p class="section-subtitle">Das Beste aus unseren Märkten</p>
+            </div>
+            <div class="highlights-grid">
+                <a href="angebot.html" class="highlight-card">
+                    <div class="highlight-badge">ANGEBOT</div>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600" alt="Frische Lebensmittel">
+                    <div class="highlight-content">
+                        <h3>WÖCHENTLICHE ANGEBOTE</h3>
+                        <p>Jede Woche neue Überraschungen und besondere Preise</p>
+                        <span class="highlight-link">Jetzt entdecken <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="Steaks.html" class="highlight-card">
+                    <div class="highlight-badge">PREMIUM</div>
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=600" alt="Premium Fleisch">
+                    <div class="highlight-content">
+                        <h3>PREMIUM FLEISCH</h3>
+                        <p>Ausgewählte Steaks und Fleischspezialitäten</p>
+                        <span class="highlight-link">Zur Fleischtheke <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="sortiment.html" class="highlight-card">
+                    <div class="highlight-badge">REGIONAL</div>
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=600" alt="Regionale Produkte">
+                    <div class="highlight-content">
+                        <h3>REGIONAL & SAISONAL</h3>
+                        <p>Frische vom Bauern aus der Region</p>
+                        <span class="highlight-link">Regionale Schätze <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unsere Märkte -->
+    <section class="markets-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>UNSERE MÄRKTE</h2>
+                <p class="section-subtitle">Finden Sie Ihren EDEKA Niemerszein in Hamburg</p>
+            </div>
+            <div class="markets-grid">
+                <div class="market-card">
+                    <div class="market-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w-600" alt="EDEKA Niemerszein Eppendorf">
+                    </div>
+                    <div class="market-info">
+                        <h3>EDEKA NIEMERSZEIN EPPENDORF</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Eppendorfer Weg 123, 20251 Hamburg</p>
+                        <p><i class="fas fa-phone"></i> 040 123 456 789</p>
+                        <p><i class="fas fa-clock"></i> Mo-Sa 7:00-21:00 Uhr</p>
+                        <a href="markt.html#eppendorf" class="btn-market">MEHR INFOS</a>
+                    </div>
+                </div>
+                <div class="market-card">
+                    <div class="market-image">
+                        <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=600" alt="EDEKA Niemerszein Harvestehude">
+                    </div>
+                    <div class="market-info">
+                        <h3>EDEKA NIEMERSZEIN HARVESTEHUDE</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Harvestehuder Weg 456, 20149 Hamburg</p>
+                        <p><i class="fas fa-phone"></i> 040 987 654 321</p>
+                        <p><i class="fas fa-clock"></i> Mo-Sa 7:00-21:00 Uhr</p>
+                        <a href="markt.html#harvestehude" class="btn-market">MEHR INFOS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>BLEIBEN SIE AUF DEM LAUFENDEN</h2>
+                <p>Melden Sie sich für unseren Newsletter an und verpassen Sie keine Angebote mehr!</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Ihre E-Mail-Adresse" required>
+                    <button type="submit" class="btn-newsletter">ABONNIEREN <i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p class="newsletter-note">Mit Ihrer Anmeldung akzeptieren Sie unsere Datenschutzerklärung.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">EDEKA NIEMERSZEIN</div>
+                    <p class="footer-tagline">Alles Gute für Sie!</p>
+                    <p class="footer-about">Seit über 60 Jahren für beste Qualität und persönliche Beratung in Hamburg.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>KONTAKT</h4>
+                    <p><i class="fas fa-phone"></i> 040 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@niemerszein.de</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Eppendorfer Weg 123<br>20251 Hamburg</p>
+                </div>
+                <div class="footer-col">
+                    <h4>LINKS</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                    <a href="karriere.html">Karriere</a>
+                </div>
+                <div class="footer-col">
+                    <h4>FOLGEN SIE UNS</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="footer-badges">
+                        <span class="badge">Familienunternehmen</span>
+                        <span class="badge">Seit 1960</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EDEKA Niemerszein Hamburg. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Einkaufsliste Sidebar (unverändert) -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
     <div class="shopping-list-sidebar" id="shoppingSidebar">
         <div class="sidebar-header">
-            <h2>Meine Liste</h2>
-            <button class="close-sidebar-btn" onclick="toggleSidebar()">✕</button>
-        </div>
-        
-        <div class="custom-item-container">
-            <input type="text" id="customItemInput" class="custom-item-input" placeholder="Eigener Artikel (z.B. Milch...)" onkeypress="handleCustomItemKeypress(event)">
-            <button class="custom-item-add-btn" onclick="addCustomItem()">+</button>
-        </div>
-
-        <div class="list-items-container" id="listItemsContainer">
-            <div class="empty-list-msg">Deine Einkaufsliste ist noch leer.</div>
-        </div>
-        <div class="sidebar-footer">
-            <div class="list-total">
-                <span>Summe Angebote:</span>
-                <span id="listTotalSum">0,00 €</span>
-            </div>
-        </div>
-    </div>
-
-    <section class="slider-container" id="sliderContainer">
-        <div class="slider" id="slider">
-            <a href="angebot.html" class="slide" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1920');">
-                <div class="slide-content">
-                    <h2>AUCH DIESE WOCHE gibt es viele tolle Angebote!</h2>
-                    <p>Schauen Sie doch gleich mal rein ➔</p>
-                </div>
-            </a>
-            <a href="/sortiment/vegan" class="slide" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=1920');">
-                <div class="slide-content">
-                    <h2>APPROVED BY MEAT LOVERS!</h2>
-                    <p>100% natürliche, pflanzliche Proteine.</p>
-                </div>
-            </a>
-            <a href="/sortiment/ready-meals" class="slide" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80&w=1920');">
-                <div class="slide-content">
-                    <h2>READY MEALS IM GLAS</h2>
-                    <p>Soooo gut! Lecker, schnell & einfach.</p>
-                </div>
-            </a>
-            <a href="Steaks.html" class="slide" style="background-image: url('https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=1920');">
-                <div class="slide-content">
-                    <h2>WORLD CLASS BEEF</h2>
-                    <p>Höchste Qualität für den perfekten Fleischgenuss.</p>
-                </div>
-            </a>
-        </div>
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
-        <div class="dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-    </section>
-
-    <section class="about-section container">
-        <div class="about-text">
-            <h2>MOIN MOIN,</h2>
-            <p>liebe Hamburger und Hamburgerinnen! Schön, dass Sie mal reinschauen bei EDEKA Niemerszein. Vielleicht kennen Sie uns schon von Kindesbeinen an? Schließlich gehören wir schon seit über 60 Jahren zur Nachbarschaft in den schönsten Vierteln Hamburgs. NIEMERSZEIN ist ein Familienunternehmen, in dem Leidenschaft für gutes Essen Tradition hat.</p>
-            <p>Sie finden bei uns alles, was uns das Leben jeden Tag genießen lässt: von klassischen Lebensmitteln – immer den entscheidenden Tick frischer und geschmackvoller – bis zu Feinkost. Bei allem, was wir verkaufen, ist 100% Qualität unser Anspruch.</p>
-            <p>Regionale Köstlichkeiten stehen bei uns besonders hoch im Kurs. Knackiges Obst und Gemüse und erstklassige Fleisch- und Wurstwaren beziehen wir am liebsten von langjährig befreundeten Betrieben aus dem Umland.</p>
-            <p>Es ist uns eine besondere Freude, unsere Waren mit guter Beratung wie Weinempfehlungen oder Fachgesimpel an der Käsetheke zu krönen – die persönliche Nähe zu unseren Kunden lässt uns täglich besonders gut gelaunt und motiviert an die Arbeit gehen.</p>
-            <p>Alles Gute für Sie,<br>Ihre Niemerszein Familie</p>
-        </div>
-        <div class="about-badges">
-            <div class="badge-img">Hier könnte<br>Ihr Logo stehen</div>
-            <div class="badge-img">Küchenliebe<br>Logo</div>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="promo-banner">
-            BEWIRB DICH JETZT BEI UNS FÜR <span>DEINE AUSBILDUNG 2026 ➔</span>
-        </div>
-    </div>
-
-    <section class="news-section">
-        <div class="grid">
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&q=80&w=600" alt="Käse" class="card-img">
-                <div class="card-content"><h3>UND DER KÄSE-STAR GEHT AN ... UNS!</h3></div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=600" alt="Früchte" class="card-img">
-                <div class="card-content"><h3>DIE FRÜCHTE UNSERER ARBEIT</h3></div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600" alt="Küchenliebe" class="card-img">
-                <div class="card-content"><h3>MITTAG HURRA – KÜCHENLIEBE IST DA!!</h3></div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=600" alt="Falstaff" class="card-img">
-                <div class="card-content"><h3>falstaff HAT GEWÄHLT!</h3></div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Ausbildung" class="card-img">
-                <div class="card-content"><h3>MACH EINE AUSBILDUNG BEI UNS!</h3></div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=600" alt="Team" class="card-img">
-                <div class="card-content"><h3>WIR SIND STOLZ, STOLZ, STOLZ!</h3></div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=600" alt="Presse" class="card-img">
-                <div class="card-content"><h3>GANZ GROSS IN DER PRESSE!</h3></div>
-            </a>
-        </div>
-    </section>
-
-    <a href="Steaks.html" class="floating-beef-badge">
-        🥩 WORLD CLASS BEEF
-        <span>Hier entdecken ➔</span>
-    </a>
-
-    <script>
-        // --- EINKAUFSLISTEN LOGIK ---
-        let shoppingList = JSON.parse(localStorage.getItem('edeka_shopping_list')) || [];
-
-        function initApp() {
-            updateListUI();
-        }
-
-        function toggleSidebar() {
-            document.getElementById('shoppingSidebar').classList.toggle('active');
-            document.getElementById('sidebarOverlay').classList.toggle('active');
-            if(document.getElementById('shoppingSidebar').classList.contains('active')) {
-                setTimeout(() => document.getElementById('customItemInput').focus(), 300);
-            }
-        }
-
-        function addCustomItem() {
-            const inputField = document.getElementById('customItemInput');
-            const title = inputField.value.trim();
-            if (title !== '') {
-                const customId = 'custom-' + Date.now();
-                shoppingList.push({ id: customId, title: title, price: 0, isCustom: true });
-                inputField.value = ''; 
-                saveList();
-                updateListUI();
-            }
-        }
-
-        function handleCustomItemKeypress(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault(); 
-                addCustomItem();
-            }
-        }
-
-        function removeItem(id) {
-            shoppingList = shoppingList.filter(item => item.id !== id);
-            saveList();
-            updateListUI();
-        }
-
-        function saveList() {
-            localStorage.setItem('edeka_shopping_list', JSON.stringify(shoppingList));
-        }
-
-        function updateListUI() {
-            document.getElementById('listCounter').innerText = shoppingList.length;
-            const container = document.getElementById('listItemsContainer');
-            let sum = 0;
-            
-            if (shoppingList.length === 0) {
-                container.innerHTML = '<div class="empty-list-msg">Deine Einkaufsliste ist noch leer.</div>';
-            } else {
-                container.innerHTML = '';
-                shoppingList.forEach(item => {
-                    if(!item.isCustom) sum += parseFloat(item.price);
-                    const priceHtml = item.isCustom 
-                        ? '<span class="list-item-custom-label">Eigener Artikel</span>' 
-                        : `<span class="list-item-price">${item.price.toFixed(2).replace('.', ',')} €</span>`;
-                    const itemHtml = `
-                        <div class="list-item">
-                            <div class="list-item-info">
-                                <span class="list-item-title">${item.title}</span>
-                                ${priceHtml}
-                            </div>
-                            <button class="remove-item-btn" onclick="removeItem('${item.id}')" aria-label="Entfernen">🗑️</button>
-                        </div>`;
-                    container.insertAdjacentHTML('beforeend', itemHtml);
-                });
-            }
-            document.getElementById('listTotalSum').innerText = sum.toFixed(2).replace('.', ',') + ' €';
-        }
-
-        // --- MOBILE NAVIGATION ---
-        function toggleMenu() {
-            document.getElementById("mobileNav").classList.toggle("active");
-        }
-
-        document.querySelectorAll('.main-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                const nav = document.getElementById("mobileNav");
-                if (nav.classList.contains('active')) nav.classList.remove('active');
-            });
-        });
-
-        // --- SLIDER LOGIK MIT TOUCH/SWIPE ---
-        let slideIndex = 0;
-        const slider = document.getElementById("slider");
-        const sliderContainer = document.getElementById("sliderContainer");
-        const dots = document.getElementsByClassName("dot");
-        const totalSlides = document.getElementsByClassName("slide").length;
-        let slideInterval;
-
-        function updateSlider() {
-            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            dots[slideIndex].className += " active";
-        }
-
-        function moveSlide(n) {
-            slideIndex += n;
-            if (slideIndex >= totalSlides) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = totalSlides - 1;
-            updateSlider();
-            resetTimer();
-        }
-
-        function currentSlide(n) {
-            slideIndex = n;
-            updateSlider();
-            resetTimer();
-        }
-
-        function startTimer() {
-            slideInterval = setInterval(() => { moveSlide(1); }, 5000);
-        }
-
-        function resetTimer() {
-            clearInterval(slideInterval);
-            startTimer();
-        }
-
-        // --- SWIPE ERKENNUNG ---
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                moveSlide(1); 
-            }
-            if (touchEndX > touchStartX + 50) {
-                moveSlide(-1); 
-            }
-        }
-
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        sliderContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        window.onload = () => {
-            initApp();
-            startTimer();
-        };
-    </script>
-    <script>
-        // Migration der Einkaufsliste
-        document.addEventListener("DOMContentLoaded", function() {
-            const oldList = localStorage.getItem("edeka_shopping_list");
-            const newList = localStorage.getItem("edeka_shopping_list_v2");
-            
-            // Migriere nur wenn alte Liste existiert und neue nicht
-            if (oldList && !newList) {
-                try {
-                    localStorage.setItem("edeka_shopping_list_v2", oldList);
-                    console.log("✅ Einkaufsliste migriert:", JSON.parse(oldList).length, "Artikel");
-                } catch(e) {
-                    console.error("❌ Migrationsfehler:", e);
-                }
-            }
-        });
-    </script>
-    <script src="app.js"></script>
-</body>
-</html>
+            <
